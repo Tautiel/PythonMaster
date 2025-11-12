@@ -1,0 +1,22 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Jupyter Notebook ---
+.ipynb_checkpoints/
+
+# --- VS Code / PyCharm ---
+.vscode/
+.idea/
+
+# --- Log e file temporanei ---
+*.log
+*.tmp
+*.swp
+
+# --- Build / librerie ---
+dist/
+build/
+node_modules/
