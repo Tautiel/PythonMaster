@@ -1,8 +1,11 @@
+import copy    
+
 # ========================================================================
 # SEZIONE 1 VARIABLES E MEMORY (GIORNI 1-2)
 # ========================================================================
 
 # ESERCIZIO 1 VARIABLE INSPECTOR
+
 
 print("-" * 50)
 print("ESERCIZI MEMORY E VARIABLES")
@@ -110,6 +113,7 @@ esercizio_1_1()
 # ESERCIZIO 1.2 Multiple Assignment
 # ================================================================
 
+
 def esercizio1_2():
     
     a, b, c = 1, 2, 3
@@ -122,6 +126,7 @@ def esercizio1_2():
     print(f"Dopo lo Swap x = {x}, y = {y}")
     
     return a, b, c, x, y
+
 # Test
 
 if __name__ == "__main__":
@@ -182,6 +187,7 @@ def immutable_mutable():
     tpl = (10, 11, 12)
     print(f"LA tupla è ora: {tpl}, ID: {id(tpl)}")
 
+
 if __name__ == "__main__":
     result = immutable_mutable()
     print("Esercizio 3 completato")
@@ -236,20 +242,78 @@ def integers_operations():
     
     return shares_can_buy
 
+
 if __name__ == "__main__":
     result = integers_operations()
     print("Esercizio 2.1 completato")
     
     
+# MATEMATICA ( 4 OPERAZIONI BASE)
 
+
+def concetto_1_operazioni_base():
+    """Addizione"""
+    capitale_iniziale = 10000
+    deposito = 300
+    capitale_totale = capitale_iniziale + deposito 
+    print(f"Capitale iniziale è: {capitale_iniziale}")
+    print(f"Deposito è: {deposito}")
+    print(f"Totale: { capitale_iniziale} + {deposito} = {capitale_totale}$") 
+    """Sottrazione"""
+    prezzo_di_acquisto = 100
+    prezzo_di_vendita = 120
+    guadagno = prezzo_di_vendita - prezzo_di_acquisto 
+    print(f"Prezzo di acquisto: {prezzo_di_acquisto}")
+    print(f"prezzo di vendita: {prezzo_di_vendita}")
+    print(f"Guadagno: {prezzo_di_vendita} - {prezzo_di_acquisto} = {guadagno}")   
+    prezzi_vendita_male = 80
+    perdita = prezzi_vendita_male - prezzo_di_acquisto
+    print(f"Se vendi a: {prezzi_vendita_male}")
+    print(f"Risultato = {prezzi_vendita_male} - {prezzo_di_acquisto} = {perdita}")
+
+if __name__ == "__main__":
+    result = concetto_1_operazioni_base()
+    print("Esercizio 4 operazioni completato")
+
+def test_copy_behavior():
+    """
+    Differenza tra shallow e deep copy
+    """
+    # Lista con sottolista
+    ls1 = [[1, 2], [3, 4], [5, 6]]
     
+    # Shallow copy
+    shallow = ls1.copy()
+    shallow[0].append(3) # Modifica la sottolista
+    print(f"ls1 dopo shallow copy: {ls1}")
+    print(f"Shallow copy: {shallow}")
+    print("Le sottoliste sono condivise!\n")
     
-
+    # Deep copy
+    ls_2 = [[1, 2], [3, 4], [4, 5]]
+    deep = copy.deepcopy(ls_2)
+    deep[0].append(3)
     
-
-
+    print(f"ls_2 dopo deep copy: {ls_2}")
+    print(f"Deep copy: {deep}")
+    print("Copie totalmente indipendenti!\n")
+    
+    # Dizionari annidati esempio
+    dz_1 = {"Utente_1": 
+        {"occhi":"marroni", 
+        "altezza": 1.85,
+        "capelli": "neri"
+        },
+        "Utente_2":{
+            "occhi": "azzurri",
+            "altezza": 1.70,
+            "capelli": "biondi"
             
-        
-
+        },
+    }
     
-     
+    deep_dz_1 = copy.deepcopy(dz_1)
+    print(f"dz_! dopo deep copy: {dz_1}")
+    print(f"Deep copy: {deep_dz_1}")
+    print("Copie totalmente indipendenti!\n")   
+test_copy_behavior()
