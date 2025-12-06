@@ -316,4 +316,56 @@ def test_copy_behavior():
     print(f"dz_! dopo deep copy: {dz_1}")
     print(f"Deep copy: {deep_dz_1}")
     print("Copie totalmente indipendenti!\n")   
+
+
 test_copy_behavior()
+
+
+# Esercio 5: Variable Scope
+
+
+global_var = "Sono globale"
+
+def test_scope():
+    """
+    Local vs global
+    """
+    
+    local_var = "Sono locale"
+    
+    def inner_function():
+        nonlocal local_var
+        local_var = "Modificata da inner"
+        inner_var = "Sono in inner"
+        print(f"Inner - local_var: {local_var}")
+        print(f"Inner - global_var: {global_var}")
+        
+    print(f"Outer - local_var prima: {local_var}")
+    inner_function()
+    print(f"Outer local_var dopo: {local_var}")
+
+
+test_scope()
+
+# SEZIONE 2
+
+# Esercizio 7: Number Systems
+ 
+def number_systems(n):
+    """
+    Mostra un numero in diversi sistemi numerici
+    """
+    if isinstance(n, str):
+        n = int(n)
+        
+    print(f"Decimale: {n}")
+    print(f"binario: {bin(n)}")
+    print(f"Ottale: {oct(n)}")
+    print(f"Esadecimale: {hex(n)}")
+    
+    
+    if n == hex(n) or bin(n):
+        print(f"Conversione da binario/hex a decimale: {n}")
+
+
+number_systems(6)
