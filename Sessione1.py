@@ -369,3 +369,69 @@ def number_systems(n):
 
 
 number_systems(6)
+
+# ESERCIZIO 9 PRECISION FLOAT
+
+def float_precision():
+    a = 0.1 + 0.1 + 0.1
+    b = 0.3
+    print(f"0.1 + 0.1 + 0.1 = {a}")
+    print(f"0.3 = {b}")
+    print(f"Sono uguali? {a == b}")
+    print(f"Differenza: {abs(a - b)}")
+    
+    #Soluzione con decimal
+    
+    from decimal import Decimal
+    x = Decimal('0.1') + Decimal('0.1') + Decimal('0.1')
+    y = Decimal('0.3')
+    print(f"\ncon Decimal:")
+    print(f"Sono uguali? {x == y}")
+    
+    d = Decimal('0.1') / Decimal('0.1') / Decimal('0.1')
+    g = Decimal('0.3')
+    print(f"\ncon Decimanl:")
+    print(f"Sono uguali? {x == y}")
+    
+float_precision()     
+
+# ESERCIZIO 10 BOOLEAN PUZZLE
+
+# Valori da testare AND e OR
+
+def boolean_puzzle():
+    
+    values = [True and True,
+              True and False,
+              True or True,
+              True or False]
+    
+    print(f"Test della verità:")
+    for val in values:
+        print(f"{repr(val):4} -> {bool(val)}")
+        
+    print("Logic operations:")
+    print(f"True and False : {True and False}")
+    print(f"True or False : {True or False}")
+    print(f"not True : {not True}")
+
+
+boolean_puzzle()
+
+def list_operations():
+    
+    li_op= [1, 2 ,2 ,3, 4, 4, 5, 6, 6, 7 ,8, 8,]
+    
+    it = {}
+    res = []
+    
+    for li in li_op:
+        if li not in it:
+            res.append(li)
+            it[li] = True
+            
+    print(f"La lista iterata senza duplicati è : {res}")
+    
+    
+list_operations()
+
