@@ -435,3 +435,144 @@ def list_operations():
     
 list_operations()
 
+def dict_operations():
+    person = {
+        'name': 'Marco',
+        'age': 35,
+        'skills': ['Python', 'Trading'],
+        'location': 'Milano'
+    }
+    print(f"Dizionario: {person}")
+    # Accesso sicuro 
+    print(f"Nome: {person.get('name', 'N/A')}")
+    print(f"Email: {person.get('email', 'Non presente')}")
+    # Update
+    person.update({'email': 'marco@example.com', 'age': 36})
+    print(f"Dopo update: {person}")
+    # Keys, value, item
+    print(f"Chiavi: {list(person.keys())}")
+    print(f"Valori: {list(person.values())}")
+    # Dictionaries comprehension
+    squared_numbers = {x: x**2 for x in range(5)}
+    print(f"Quadrati: {squared_numbers}")
+    # Inverti chiavi e valori
+    new_person = {}
+    for key, value in person.items():
+        if isinstance(value, (list, dict, set)):
+            continue
+        new_person[value] = key
+    print(f"Prima del ciclo for: {person}")
+    print(f"Dopo il ciclo for: {new_person}")
+dict_operations()
+
+def set_oprations():
+    # Trading assets
+    portfolio_a = {'BTC', 'ETH', 'ADA', 'DOT'}
+    portfolio_b = {'BTC', 'BNB', 'ADA', 'SOL'}
+    
+    print(f"Porfolio A: {portfolio_a}")
+    print(f"portfolio B: {portfolio_b}")
+    
+    # Operazioni
+    
+    print(f"Unione (tutti): {portfolio_a | portfolio_b}")
+    print(f"Intersezione (comuni): {portfolio_a & portfolio_b}")
+    print(f"Differenza (solo in A): {portfolio_a - portfolio_b}")
+    print(f"Differenza simmetrica: {portfolio_a ^ portfolio_b}")
+    
+    # Controlli
+    
+    print(f"''BTC' in A?{'BTC' in portfolio_a}")
+    print(f"A è un subset di B? {portfolio_a.issubset(portfolio_b)}")
+    
+    portfolio_c = {'ETH', 'XRP', 'SOL', 'MATIC'}
+    
+    print(f"Unisco i tre portfolio: {portfolio_a | portfolio_b | portfolio_c}")
+
+
+set_oprations()
+
+def tuple_operation():
+    # Coordinate
+    point = (10, 20, 30)
+    x, y, z = point
+    print(f"Coordinate: x = {x}, y = {y}, z = {z}")
+    
+    # Swap senza temp
+    a, b = 5, 10
+    print(f"Prima: A = {a}, b = {b}")
+    
+    # Extended unpacking
+    numbers = (1, 2, 3, 4, 5, 6)
+    first, *middle, last = numbers 
+    print(f"First: {first}, Middle: {middle}, last: {last}")
+    
+    # Named tuple
+    from collections import namedtuple
+    Trade = namedtuple('Trade', ['symbol', 'price', 'quantity'])
+    trade = Trade('BTC', 45000, 0.5)
+    print(f"Trade: {trade.symbol} @ ${trade.price}")
+    
+    # Funzione che ritorna multiple values
+    
+    def get_stats(values):
+        minimo = min(values)
+        massimo = max(values)
+        totale = sum(values)
+        return minimo, massimo, totale   # <-- tupla
+    
+    stats = get_stats(numbers)
+    print(f"Statistiche (min, max, sum): {stats}")
+    
+    # Oppure unpacking
+    mn, mx, sm = get_stats(numbers)
+    print(f"Minimo: {mn}, Massimo: {mx}, Somma: {sm}")
+
+
+tuple_operation()
+
+def nested_structures():
+    
+    trading_data = {
+        'BTC': {
+            'price': 80000,
+            'volume': 1000000000,
+            'trades': [
+                {'time': '10:00', 'price': 89956, 'qty': 0.1},
+                {'time': '10:05', 'price': 91456, 'qty': 0.2}    
+            ]
+        },
+        'ETH': {
+            'price': 3000,
+            'volume': 500000,
+            'trades': [
+               {'time': '10:00', 'price': 2547, 'qty': 1.0},
+               {'time': '10:05', 'price': 3054, 'qty': 0.5}
+            ]
+        }
+    }
+    
+    # Accesso ai dati
+    btc_price = trading_data['BTC']['price']
+    print(f"BTC price: ${btc_price}")
+    
+    # Primo trade ETH
+    first_trade_eth = trading_data['ETH']['trades'][0]
+    print(f"First ETH trade: : {first_trade_eth}")
+    
+    # Calcolo valore totale trade
+    total_btc_value = sum(
+        trades['price'] * trades['qty']
+        for trades in trading_data['BTC']['trades']
+    )
+    print(f"Total BTC traded value: ${total_btc_value}")
+    
+    # Trova il prezzo medio di BTC
+    
+    mid_price_btc = sum(
+        trades['price'] * trades['qty'] for trades in trading_data['BTC']['trades']) / sum(trades['qty'] for trades in trading_data['BTC']['trades'])
+    
+    print(f"Accesso al prezzo medio dei trades di BTC {mid_price_btc}")
+    
+
+nested_structures()
