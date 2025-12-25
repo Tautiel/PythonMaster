@@ -576,3 +576,65 @@ def nested_structures():
     
 
 nested_structures()
+
+def list_basic_operations():
+    
+    prices = [100, 5.5, 5, 357, 55, 3000, 22, 0.11, 5.12, 250]
+    
+    prices.append(35000)
+    
+    prices.insert(2, 2000)
+    
+    first =  prices.pop(0)
+    
+    index_3000 = prices.index(3000)
+    
+    count_2000 = prices.count(2000)
+    
+    prices.sort()
+    
+    prices.reverse()
+    
+    print(f"lista finale {prices}")
+    print(f"primo rimosso {first}")
+    print(f"index di 3000 {index_3000}")
+    
+    return prices
+
+list_basic_operations()
+
+def advanced_slicing():
+    
+    data = list(range(1,50))
+    first_5 = data[:5]
+    last_5 = data[-5:]
+    middle = data [15:25]
+    every_second = data[::2]
+    every_third_from_second = data[1::3]
+    revesed_list = data[::-1]
+    last_10_reversed = data[-10:][::-1]
+    
+    print(f"primi 5:{first_5}, ultimi 5:{last_5}, ultimi 10 inverso:{last_10_reversed}")
+    
+advanced_slicing()
+
+def list_comprehension_practices():
+    
+    squares = [x**2 for x in range(1,11)]
+    print(f"Quadrati: {squares}")
+    
+    evens = [x for x in range(1, 21) if x % 2 == 0]
+    print(f"pari {evens}")
+    
+    prices = [100 ,250, 75, 300, 150]
+    discouted = [p * 0.9 for p in prices]
+    print(f"prezzi scontati:{discouted}")
+    
+    premium_disounted = [p *0.8 for p in prices if p > 100]
+    print(f"prezzi premium: {premium_disounted}")
+    
+
+list_comprehension_practices()
+
+
+    
