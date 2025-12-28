@@ -637,4 +637,3 @@ def list_comprehension_practices():
 list_comprehension_practices()
 
 
-    
