@@ -1,4 +1,6 @@
-import copy    
+import copy
+from collections import Counter, deque
+
 
 # ========================================================================
 # SEZIONE 1 VARIABLES E MEMORY (GIORNI 1-2)
@@ -636,4 +638,34 @@ def list_comprehension_practices():
 
 list_comprehension_practices()
 
+from collections import Counter
 
+
+def counter_dict_operation():
+    
+    token_list = ["BTC", "ETH", "ADA", "TRX", "BTC", "BTC", "HNT", "HBAR", "HNT", "ADA", "ADA", "ETH", "ETH"]
+    
+    token_dict = Counter(token_list)  
+    
+    print(f"Prima del modulo Counter : {token_list}")
+    print(f"Dopo il modulo Counter {token_dict}")
+    
+    add_btc = Counter({"BTC" : 3}) + Counter({"BTC" : 6})
+    
+    print(F"Dopo somma Counter di BTC: {add_btc}")
+    
+    
+counter_dict_operation()
+
+def deque_exercise():
+    
+    d = deque([1,2,3,4,5])
+    
+    print(f"Lista deque originale: {d}")
+    print(f"Lista deque con rotate: {d.rotate(-2)} ")
+        
+deque_exercise()
+
+def itertools():
+    
+    
