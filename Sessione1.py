@@ -668,4 +668,15 @@ deque_exercise()
 
 def itertools():
     
+    import itertools as it
     
+    a = [1, 2]
+    b = ['x', 'y']
+    p = list(it.product(a, b))
+    
+    
+    print(f"Le due liste sono:{a} e {b}")
+    print(f"Il prodott ocaartesiano è: {p}")
+    
+
+itertools()
