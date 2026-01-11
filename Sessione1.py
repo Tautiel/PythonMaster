@@ -674,9 +674,63 @@ def itertools():
     b = ['x', 'y']
     p = list(it.product(a, b))
     
-    
     print(f"Le due liste sono:{a} e {b}")
-    print(f"Il prodott ocaartesiano è: {p}")
+    print(f"Il prodotto cartesiano è: {p}")
     
 
 itertools()
+
+def esercizio_combinatoria_trading():
+    
+    import itertools as it
+    
+    print("\n---PRODICT: ASSET X EXCHANGE ---")
+    
+    assets = ["BTC", "ETH", "SOL"]
+    exchange = ["Binance", "Kraken"]
+    
+    combos_iter = it.product(assets, exchange)
+    print(f"Oggetto iteratore", combos_iter)
+    
+    combos_list = list(combos_iter)
+    print(f"Combinazioni asset x exchange:", combos_list)
+    
+    print(f"\n---PERMUTATIONS: SEQUENZE DI AZIONI ---")
+    
+    actions = ["buy", "sell", "hold"]
+    
+    perm_2 = list(it.permutations(actions, 2))
+    print(f" Permutazioni di 2 azioni", perm_2)
+    
+    print("\n---COMBINATIONS: COPPIE DI ASSETS ---")
+    
+    assets_pairs = list(it.combinations(assets, 2))
+    print(" Coppie di asset (ordine non conta):", assets_pairs)
+    
+    print("\n---COMBINATIONS WITH REPLACEMENT: ASSET CON RIPETIZIONE ---")
+    
+    core_asset = ["BTC", "ETH"]
+    portfolio_slots = list(it.combinations_with_replacement(core_asset, 3))
+    print("Combinazione con ripetizione (3 slot BTC/ETH):", portfolio_slots)
+    
+    
+esercizio_combinatoria_trading()
+
+def allocation_combinations(n_asset: int, steps: int = 4, tol: float = 1e-6):
+    import itertools as it
+    weights = [i / steps for i in range(steps + 1)]
+    for combo in it.product(weights, repeat = n_asset):
+        if abs(sum(combo) -1.0) < tol:
+            yield combo
+            
+assets = ['AAPL', 'GOOGL', 'MSFT']
+allocations = list(allocation_combinations(n_asset=3, steps=4))
+
+print(f"{len(allocations)} allocazioni valide per 3 asset:")
+for alloc in allocations[:5]:
+    print(" ", dict(zip(assets, alloc)))
+print(f"   ...({len(allocations) - 5} altre)")
+
+
+
+
