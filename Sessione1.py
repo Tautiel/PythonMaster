@@ -730,3 +730,28 @@ print(f"{len(allocations)} allocazioni valide per 3 asset:")
 for alloc in allocations[:5]:
     print(" ", dict(zip(assets, alloc)))
 print(f"   ...({len(allocations) - 5} altre)")
+
+import itertools as it
+
+def equity_curve(returns, initial=10000):
+    """Calcola l'equity curve data una lista di rendimenti percentuali.
+    
+    - retuns: lista di rendimenti (es. 0.02, -0.01, ...)
+    - initial: capitale iniziale
+    
+    Ritorna una lista di equity giornaliera. 
+    """
+    
+    def compound(balance, ret):
+        return balance * (1+ ret)
+        
+    return list(it.accumulate(returns, compound, initial=initial))
+
+# TEST
+
+
+returns = [0.10, -0.05, -0.20, -0.15, 0.15, 0.03]
+equity = equity_curve(returns, initial=10000)
+
+for i, (ret, eq) in enumerate(zip(returns, equity), start = 1):
+    print(f"Day {i}: {ret:+.1%} -> {eq:.2f}")
