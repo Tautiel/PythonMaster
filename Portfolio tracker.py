@@ -62,6 +62,14 @@ def portfolio_tracker():
         pass
     
     def show_portfolio():
+        print("\n PORTFOLIO ATTUALE")
+        print("-" * 30)
+        
+        if not portfolio:
+            print("Portfolio vuoto")
+            return
+        for symbol, qty in portfolio.items():
+            print(f"{symbol}: {qty}")
         pass
     
     def show_trasactions():
@@ -82,3 +90,8 @@ def portfolio_tracker():
     
 
 tracker = portfolio_tracker()
+
+tracker['buy']('BTC', 0.1, 96555)
+tracker['buy']('ETH', 2.0, 3125)
+
+tracker['show_portfolio']()
