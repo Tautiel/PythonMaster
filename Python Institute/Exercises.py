@@ -24,4 +24,3 @@ km_rimanenti = km_attuali - km_tagliando
 km_pertagliando = 4000
 km_mancanti = km_pertagliando - km_rimanenti
 print(f" I Km che mancano al prossimo tagliando sono {km_mancanti} ")
-
