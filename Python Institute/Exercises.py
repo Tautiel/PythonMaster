@@ -45,7 +45,7 @@ class Restaurant:
         
     def describe_restaurant(self):
         print(f"Ho il ristorante migliore del mondo che si chiama {self.restaurant_name}")
-        print(f"Facciamo {self.cuisine_type}")
+        print(f"Facciamo cucina {self.cuisine_type}")
     
     def open_restaurant(self):
         print("Il ristorante è aperto H24")
@@ -59,8 +59,7 @@ print(f"Facciamo solo cunina {my_restaurant.cuisine_type}")
 my_restaurant.describe_restaurant()
 my_restaurant.open_restaurant()
 
+your_restaurant = Restaurant("The Wilde", "asiatica")
 
+your_restaurant.describe_restaurant()
 
-
-    
-       
