@@ -1,26 +1,66 @@
-# CREO LA SCHEDA DELLA MIA MOTO
+class Cell:
+    def __init__(self):
+        self.food = 0
+        
+    def add_food(self, amount):
+        self.food += amount
+        
+    def conseme_food(self, amount):
+        consumed = min(self.food, amount)
+        self.food -= consumed
+        return consumed
 
-modello = "Beta RR Motard"
-anno = 2023
-cilindrata = 125
-prz_eur = 3500.00
-in_garanzia = True
-print(f"La mia moto {modello} di cilindrata {cilindrata} del {anno} pagata {prz_eur} euro ")
 
-# CONSUMO
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        
+    def sit(self):
+        print(f"{self.name} si siede")
+        
+    def roll_over(self):
+        print(f"{self.name} si rotola ed è a pancia all'aria!")
+        pass
+    
+my_dog = Dog("Willy", 6) 
 
-km_percorsi = 187
-litri_usati = 5.2
+print(f"Il mio cane si chiama {my_dog.name}.")
+print(f"il mio cane ha {my_dog.age} anni.")
 
-print(f"I Km per litro percorsi sono {km_percorsi/litri_usati:.2f}")
+my_dog.sit()
+my_dog.roll_over()
 
-# CALCOLA TAGLIANDO
+your_dog = Dog("Bruce", 5)
 
-km_attuali = input("Km attuali? ")
-km_attuali = int(km_attuali)
-km_tagliando = input("Km ultimo tagliando? ")
-km_tagliando = int(km_tagliando)
-km_rimanenti = km_attuali - km_tagliando
-km_pertagliando = 4000
-km_mancanti = km_pertagliando - km_rimanenti
-print(f" I Km che mancano al prossimo tagliando sono {km_mancanti} ")
+print(f"il tuo cane si chiama {your_dog.name}.")
+print(f"il tuo cane ha {your_dog.age} anni.")
+
+your_dog.roll_over()
+
+class Restaurant:
+    def __init__(self, restaurant_name, cuisine_type):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        
+    def describe_restaurant(self):
+        print(f"Ho il ristorante migliore del mondo che si chiama {self.restaurant_name}")
+        print(f"Facciamo {self.cuisine_type}")
+    
+    def open_restaurant(self):
+        print("Il ristorante è aperto H24")
+        pass
+    
+my_restaurant = Restaurant("Italyesse", "italiana")
+
+print(f"Il mio ristorante si chiama {my_restaurant.restaurant_name}")
+print(f"Facciamo solo cunina {my_restaurant.cuisine_type}")
+
+my_restaurant.describe_restaurant()
+my_restaurant.open_restaurant()
+
+
+
+
+    
+       
