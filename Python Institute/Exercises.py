@@ -62,4 +62,3 @@ my_restaurant.open_restaurant()
 your_restaurant = Restaurant("The Wilde", "asiatica")
 
 your_restaurant.describe_restaurant()
-
